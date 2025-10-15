@@ -7,4 +7,4 @@ name = "my_package"
 version = "0.1"
 
 [tool.hatch.build.targets.wheel]
-packages = ["polynomials"]
+packages = ["polynomials", "shape"]
