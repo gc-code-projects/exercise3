@@ -81,7 +81,7 @@ class Polynomial:
                 for j in range(other.degree() + 1):
                     coefs[i + j] += self.coefficients[i] * other.coefficients[j]
 
-            return Polynomial(coefs)
+            return Polynomial(tuple(coefs))
 
         elif isinstance(other, Number):
             return Polynomial(tuple(i * other for i in self.coefficients))
