@@ -1,5 +1,5 @@
 from numbers import Number
-
+import numbers
 
 class Polynomial:
 
@@ -93,7 +93,7 @@ class Polynomial:
         return Polynomial(tuple(i * other for i in self.coefficients))
 
     def __pow__(self, expo):
-        if isinstance(expo, Integral) and expo > 0:
+        if isinstance(expo, numbers.Integral) and expo > 0:
             ret = Polynomial((self.coefficients))
             for i in range(1, expo):
                 ret *= self
