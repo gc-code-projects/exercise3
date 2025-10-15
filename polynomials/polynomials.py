@@ -107,3 +107,14 @@ class Polynomial:
             ret += c * x ** i
         return ret
 
+    def dx(self):
+        coefs = [0] * self.degree()
+        for i, c in enumerate(self.coefficients[1:], 1):
+            coefs[i-1] = i * c
+        return Polynomial(tuple(coefs)) if coefs else Polynomial((0,))
+
+def derivative(p):
+    if isinstance(p, Polynomial):
+        return p.dx()
+    return NotImplemented
+
