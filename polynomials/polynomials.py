@@ -56,7 +56,10 @@ class Polynomial:
             common = min(self.degree(), other.degree()) + 1
             coefs = tuple(a - b for a, b in zip(self.coefficients,
                                                 other.coefficients))
-            coefs += self.coefficients[common:] + other.coefficients[common:]
+            if self.degree() == common - 1:
+                coefs += tuple(-i for i in other.coefficients[common:])
+            else:
+                coefs += self.coefficients[common:]
 
             return Polynomial(coefs)
 
